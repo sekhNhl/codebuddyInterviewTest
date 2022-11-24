@@ -14,7 +14,7 @@
         <form action="{{route('login_form')}}" method='POST'>
             @csrf
         <div class="row">
-    
+    <h2>sjdhfksdjk</h2>
         <div class='col-lg-3'>    
             <label>Email</label>
             <input type='email' name='email' required placeholder='email' class='form-control'/>
