@@ -10,19 +10,23 @@ class LoginController extends Controller
 {
     public function login_form(Request $request){
         $password=$request->password;
+        $email=$request->email;
         $user=User::where('email',$request->email)->first();
-        if (Hash::check($password, $user->password)&&($user->role_id==1)) {
-            $user=User::where('email',$request->email)->first();
-            $name=$user->name;
-            $request->Session()->put('login_id',$user->id);
-            return redirect('dashoboard_admin')->with(Session::put('name',$name)); 
+        if(Hash::check($password, $user->password)&&($user->role_id==1)) {
+            return redirect('dashoboard_admin')->with(Session::put('name',$user->name));  
         }
-        if (Hash::check($password, $user->password)&&($user->role_id==2)) {
-            $user=User::where('email',$request->email)->first();
-            $name=$user->name;
-            $request->Session()->put('login_id',$user->id);            
-            return redirect('dashoboard_user')->with(Session::put('name',$name));
+        else if(Hash::check($password, $user->password)&&($user->role_id==2)) {
+            return redirect('dashoboard_user')->with(Session::put('name',$user->name));
         }
+        // if (Hash::check($password, $user->password)&&($user->role_id==2)) {
+        //     $user=User::where('email',$request->email)->first();
+        //     $name=$user->name;
+        //     dd($name); 
+        // }
+        else{
+            dd("error");
+        }
+         
        
     }
 

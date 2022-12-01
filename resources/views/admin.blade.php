@@ -13,7 +13,7 @@
 </head>
 <body><br>
 <a href="{{route('login')}}">Logout</a>
-
+<h2>{{Session::get('name')}}</h2>
     <div class='container'>
         <form action="{{route('save_data')}}" method='POST'>
             <h2>Add Title</h2>

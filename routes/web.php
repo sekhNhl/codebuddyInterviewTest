@@ -25,7 +25,7 @@ Route::post('regd_data',[RegistrationController::class,'regd_data'])->name('regd
 Route::get('login',[RegistrationController::class,'login'])->name('login');
 Route::post('login_form',[LoginController::class,'login_form'])->name('login_form');
 Route::get('/dashoboard_admin',[LoginController::class,'dashboard_admin'])->name('dashboard_admin')->middleware('LoginMiddleware');
-Route::get('/dashoboard_user',[LoginController::class,'dashboard_user'])->name('dashoboard_user');
+Route::get('/dashoboard_user',[LoginController::class,'dashboard_user'])->name('dashoboard_user')->middleware('LoginMiddleware');
 
 Route::post('save_Data',[AdmindataController::class,'save_data'])->name('save_data');
 
