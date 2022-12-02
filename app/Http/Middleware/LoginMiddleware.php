@@ -20,5 +20,7 @@ class LoginMiddleware
             return redirect('login');
         }
         return $next($request);
+
     }
+    // Test
 }
